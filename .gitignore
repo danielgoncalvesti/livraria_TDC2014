@@ -5,6 +5,7 @@
 .cache/
 .history/
 .lib/
+.DS_Store
 dist/*
 target/
 lib_managed/
