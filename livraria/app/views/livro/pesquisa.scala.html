@@ -1,0 +1,12 @@
+@(message: String, livros: List[dao.models.Livro])(implicit lang: Lang)
+
+@main(message) {
+
+    <d1 class="livros" >
+    	@for(livro <- livros) {
+    		<dt>@livro.nome</dt>
+    		<dd>@livro.editora</dd>
+    	}
+    </d1>
+
+}
