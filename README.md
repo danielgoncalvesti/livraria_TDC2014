@@ -1,4 +1,4 @@
-tdc2014
+TDC 2014 - livraria
 =======
 
-Código-fonte de um projeto simples de livraria que será apresentado na Trilha de Scala no TDC 2014, baseada na arquitetura de um projeto com: Scala, PlayFramework, Slick e para testes Mockito e H2
+Projeto simples de uma Livraria que será apresentado na Trilha de Scala no TDC 2014, baseada na arquitetura de um projeto com: Scala, PlayFramework, Slick, Cake Pattern (DI) e para testes Specs2, Mockito, H2 e Scoverage.
