@@ -1,4 +1,4 @@
 TDC 2014 - livraria
 =======
 
-Projeto simples de uma Livraria que será apresentado na Trilha de Scala no TDC 2014, baseada na arquitetura de um projeto com: Scala, PlayFramework, Slick, Cake Patter (DI) e para testes Specs2, Mockito, H2 e Scoverage.
+Projeto simples de uma Livraria que será apresentado na Trilha de Scala no TDC 2014, baseada na arquitetura de um projeto com: Scala, PlayFramework, Slick, Cake Pattern (DI) e para testes Specs2, Mockito, H2 e Scoverage.
