@@ -1,6 +1,5 @@
 package dao.models
 
-import scala.slick.lifted
 
 case class Livro(id: Int = 0, nome: String, editora: String, preco: BigDecimal, autor: String)
 
@@ -17,7 +16,7 @@ trait Livros {
 		val autor = column[String]("idautor")
 	}
 
-	lazy val livros = new TableQuery(tag => new Livros(tag))
+	lazy val LivroT = new TableQuery(tag => new Livros(tag))
 }
 
 

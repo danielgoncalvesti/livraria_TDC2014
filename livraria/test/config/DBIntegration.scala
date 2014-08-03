@@ -31,7 +31,7 @@ trait DBIntegration {
 					}
 					
 					import scala.slick.jdbc.{StaticQuery => Q }
-					Source.fromFile(s"sql/$dbname.sql").getLines().foreach {
+					Source.fromFile(s"sql/livros.sql").getLines().foreach {
 						line =>
 							if (line.startsWith("insert")) (Q.u + line).execute
 					}
@@ -47,6 +47,7 @@ object DatabaseConnectionFactory {
 }
 
 trait TableList {
+	import dao.models.Livro
 	import scala.slick.lifted.TableQuery
 	val tableList: Seq[TableQuery[_ <: Table[_]]] = ???
 }

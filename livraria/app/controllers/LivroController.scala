@@ -5,7 +5,6 @@ import play.api.mvc._
 import services.wired.WiredLivroService
 import services._
 import play.api.mvc.Results.Status
-import views.html.defaultpages.badRequest
 import play.api.cache.Cache
 import play.api.Play.current
 import dao.models.Livro
@@ -26,19 +25,29 @@ object LivroController extends LivroController with WiredLivroService
 trait LivroController extends Controller with AuthElement with AuthConfigImpl {
 	this: LivroService =>
 
+	def index = Action {
+		Ok(views.html.index("Livraria está no ar!"))
+	}
+		
+	def home(nome: String) = Action {
+		Ok(views.html.livro.home(s"Bem Vindo a Livraria, $nome"))
+	}
+	
 	def pesquisar(nome: String) = Action {
 		val livros = livroService.buscaLivros(nome)
 		if (livros.nonEmpty) {
 			Cache.set("ultimos-livros-pesquisados", livros, 60)
 			Ok(views.html.livro.pesquisa(s"Resultado da pesquisa para a palavra: $nome", livros))
 		} else {
-			Ok(views.html.index("Nenhum livro encontrado."))
+			Ok(views.html.livro.home("Nenhum livro encontrado."))
 		}
 	}
 
 	def ultimaPesquisaJson = Action { implicit request =>
 		implicit val writes = LivroJson.writes
-		val livros = Cache.getAs[Livro]("ultimos-livros-pesquisados")
+		val livros = {
+			Cache.getAs[Livro]("ultimos-livros-pesquisados")
+		}
 		Ok(Json.obj("livros" -> livros.map(livro => Json.toJson(livro))))
 	}
 
