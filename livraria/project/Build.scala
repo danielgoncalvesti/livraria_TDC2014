@@ -16,7 +16,7 @@ object ApplicationBuild extends Build {
 	val appVersion = "1.0-SNAPSHOT"
 
 	val dependencies = Seq(
-		"com.typesafe.slick" %% "slick" % "2.1.0",
+		"com.typesafe.slick" %% "slick" % "2.1.0-RC3",
 		"com.h2database" % "h2" % "1.3.175",
 		"com.typesafe" % "config" % "1.2.0",
 		"com.typesafe.play" %% "play" % "2.2.2" withSources,
