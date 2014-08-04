@@ -7,12 +7,15 @@ import scala.slick.driver.H2Driver
 import dao.models.Livro
 import dao.Tabelas
 import dao.models.Model
+import java.sql.DriverManager
 
 trait DBIntegration extends TableList {
 
 	val dbname = "livraria"
 	lazy val db = DatabaseConnectionFactory.connection
 
+	DriverManager.registerDriver(new org.h2.Driver())
+	
 	val tables = {
 
 		db.withSession {
