@@ -11,3 +11,4 @@ resolvers += Classpaths.typesafeResolver
 
 addSbtPlugin("org.scoverage" % "sbt-scoverage" % "0.99.5.1")
 
+addSbtPlugin("com.github.mpeltonen" % "sbt-idea" % "1.5.2")

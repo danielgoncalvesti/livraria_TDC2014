@@ -1,5 +1,9 @@
 package dao
 
+import scala.concurrent.ExecutionContext.Implicits.global
+import play.api.test._
+import play.api.test.Helpers._
+
 import org.specs2.mutable.Specification
 import play.api.test.WithApplication
 import play.api.mvc.Result
@@ -8,14 +12,19 @@ import org.specs2.runner.JUnitRunner
 import _root_.config.H2Model
 import _root_.config.DBIntegration
 
+
 @RunWith(classOf[JUnitRunner])
 class LivroSpec extends Specification with DBIntegration  {
 
-	"LivroDAO" should {
+val fakeApplication = FakeApplication(
+                        additionalConfiguration = inMemoryDatabase("test")
+                        )
 
+	"LivroDAO" should {
+ Class.forName("org.h2.Driver")
 		val dao = new LivroDAOImpl with H2Model
 
-		"trazer os livros que possuem o nome informado" in {
+		"trazer os livros que possuem o nome informado" in new WithApplication(fakeApplication) {
 			db.withSession {
 				implicit session =>
 					val livros = dao.livroDAO.buscaLivrosPorNome("scala")
@@ -23,7 +32,7 @@ class LivroSpec extends Specification with DBIntegration  {
 			}
 		}
 		
-		"retornar os livros de scala com preco menor que 30 reais" in {
+		"retornar os livros de scala com preco menor que 30 reais" in new WithApplication(fakeApplication)  {
 			db.withSession {
 				implicit session =>
 					val livros = dao.livroDAO.buscaLivrosDeValorMenorQue(BigDecimal("30.0"))

@@ -41,6 +41,7 @@ trait DBIntegration extends TableList {
 	}
 
 	object DatabaseConnectionFactory {
+Class.forName("org.h2.Driver")
 		val connection = Database.forURL(
 				url = s"jdbc:h2:mem:$dbname;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=false;INIT=CREATE SCHEMA IF NOT EXISTS $dbname;",
 				user = "sa", password = "", driver = "org.h2.Driver")
