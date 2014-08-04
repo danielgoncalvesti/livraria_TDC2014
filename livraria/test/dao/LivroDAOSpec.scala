@@ -9,7 +9,7 @@ import _root_.config.H2Model
 import _root_.config.DBIntegration
 
 @RunWith(classOf[JUnitRunner])
-class LivroSpec extends Specification with DBIntegration  {
+class LivroDAOSpec extends Specification with DBIntegration  {
 
 	"LivroDAO" should {
 

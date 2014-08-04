@@ -12,25 +12,23 @@ import play.api.cache.Cache
 import org.specs2.mutable.Specification
 import jp.t2v.lab.play2.auth.test.Helpers.AuthFakeRequest
 
-
 @RunWith(classOf[JUnitRunner])
 class LivroControllerSpec extends Specification with MockServices {
 
 	"LivroIntegration" should {
 
-		"responder a página principal através de um browser" in {
+		"responder a página principal através de um browser e retornar o conteúdo 'Livraria está no ar!' " in {
 			running(TestServer(8080), HTMLUNIT) { browser =>
 				browser.goTo("http://localhost:8080/")
 				browser.pageSource must contain("Livraria está no ar!")
 			}
 		}
 
-
 	}
 
 	"LivroTemplate" should {
 
-		"renderizar o template 'pesquisa' com os parametros desejados" in {
+		"renderizar o template 'pesquisa' com os parametros desejados e retornar o conteúdo correspondente" in {
 			val html = views.html.livro.pesquisa("Resultado da Pesquisa", LivroFake.toList)
 
 			contentType(html) must equalTo("text/html")
@@ -53,7 +51,7 @@ class LivroControllerSpec extends Specification with MockServices {
 			contentAsString(result) must contain("Livraria está no ar!")
 		}
 
-		"ao cessar rota inexistente , retornar None(BadRequest)" in new WithApplication {
+		"ao acessar rota inexistente , retornar None(BadRequest)" in new WithApplication {
 			route(FakeRequest(GET, "/games")) must beNone
 		}
 
