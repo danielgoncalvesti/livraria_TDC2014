@@ -13,7 +13,10 @@ trait LivroDAO extends DatabaseConnection {
 		import driver.profile.simple._
 
 		def buscaLivrosPorNome(nome: String)(implicit s: Session): List[Livro]
+		
 		def salva(livro: Livro)(implicit s: Session)
+		
+		def buscaLivrosDeValorMenorQue(preco: BigDecimal)(implicit s: Session): List[Livro]
 
 	}
 }

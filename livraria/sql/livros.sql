@@ -1,0 +1,7 @@
+insert into livraria.livro (idlivro, nome, editora, preco, autor) values (1, 'Scala for the Impatient', 'Addison-Wesley Professional', 30.0, 'Cay S. Horstmann');
+insert into livraria.livro (idlivro, nome, editora, preco, autor) values (2, 'Programming in Scala: A Comprehensive Step-by-Step Guide', 'Artima Pres', 40.0, 'Martin Odersky, Lex Spoon e Bill Venners');
+insert into livraria.livro (idlivro, nome, editora, preco, autor) values (3, 'Thomas Alexandre', 'Packt Publishing', 20.0, 'Thomas Alexandre');
+insert into livraria.livro (idlivro, nome, editora, preco, autor) values (4, 'Programming Scala: Scalability = Functional Programming + Objects (Animal Guide)', 'O Reilly Media', 40.0, 'Dean Wampler e Alex Payne');
+insert into livraria.livro (idlivro, nome, editora, preco, autor) values (5, 'Functional Programming Patterns in Scala and Clojure: Write Lean Programs for the JVM', 'Pragmatic Bookshelf', 50.0, 'Michael Bevilacqua-Linn');
+insert into livraria.livro (idlivro, nome, editora, preco, autor) values (6, 'Scala Cookbook: Recipes for Object-Oriented and Functional Programming', 'O Reilly Media', 30.0, 'Alvin Alexander');
+insert into livraria.livro (idlivro, nome, editora, preco, autor) values (7, 'Beginning Scala (Experts Voice in Open Source) ', 'Apress', 10.0, 'David Pollak');
