@@ -21,10 +21,10 @@ import play.api.mvc.Action
 @RunWith(classOf[JUnitRunner])
 class ExtrasSpec extends Specification with MockServices {
 
-	"WebBrowser" should {
+	"Testes Funcionais [WebBrowser]" should {
 		
-		"rodar em um browser" in {
-			running(TestServer(3333), HTMLUNIT) { browser =>
+		// Selenium WebDriver
+		"rodar em um browser" in new WithBrowser(webDriver = FIREFOX) {
 
 				browser.goTo("http://localhost:3333")
 				browser.$("#title").getTexts().get(0) must equalTo("Hello Guest")
@@ -34,7 +34,6 @@ class ExtrasSpec extends Specification with MockServices {
 				browser.url must equalTo("http://localhost:3333/Coco")
 				browser.$("#title").getTexts().get(0) must equalTo("Hello Coco")
 
-			}
 		}
 	}
 	
