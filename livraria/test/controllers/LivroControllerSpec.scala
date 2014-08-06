@@ -42,7 +42,7 @@ class LivroControllerSpec extends Specification with MockServices {
 
 	"LivroRoutes" should {
 
-		"responder para o template 'index' a chamada da rota /index" in new WithApplication {
+		"responder para o template 'index' a chamada da rota principal" in new WithApplication {
 			val result = route(FakeRequest(GET, "/")).get
 
 			status(result) must equalTo(OK)
@@ -51,7 +51,7 @@ class LivroControllerSpec extends Specification with MockServices {
 			contentAsString(result) must contain("Livraria está no ar!")
 		}
 
-		"ao acessar rota inexistente , retornar None(BadRequest)" in new WithApplication {
+		"ao acessar rota inexistente e retornar None(BadRequest)" in new WithApplication {
 			route(FakeRequest(GET, "/games")) must beNone
 		}
 

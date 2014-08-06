@@ -21,44 +21,44 @@ import play.api.mvc.Action
 @RunWith(classOf[JUnitRunner])
 class ExtrasSpec extends Specification with MockServices {
 
-	"Testes Funcionais [WebBrowser]" should {
-		
-		// Selenium WebDriver
-		"rodar em um browser" in new WithBrowser(webDriver = FIREFOX) {
-
-				browser.goTo("http://localhost:3333")
-				browser.$("#title").getTexts().get(0) must equalTo("Hello Guest")
-
-				browser.$("a").click()
-
-				browser.url must equalTo("http://localhost:3333/Coco")
-				browser.$("#title").getTexts().get(0) must equalTo("Hello Coco")
-
-		}
-	}
-	
-	"FakeApplication" should {
-
-		val fakeApplication = FakeApplication(
-			additionalConfiguration = inMemoryDatabase("test"),
-			withGlobal = Some(new GlobalSettings() {
-				override def onStart(app: Application) { println("Winter is coming!") }
-			}))
-
-		"" in new WithApplication(fakeApplication) {
-			true must beTrue
-		}
-	}
-
-	"WithDbData" should {
-
-		abstract class WithDbData extends WithApplication {
-			//override def around[T](t: => T)(implicit evidence: (T) => Result) = ??? //TODO FAZER ALGO
-		}
-
-		"" in new WithDbData {
-			true must beTrue
-		}
-	}
+//	"Testes Funcionais [WebBrowser]" should {
+//		
+//		// Selenium WebDriver
+//		"rodar em um browser" in new WithBrowser(webDriver = FIREFOX) {
+//
+//				browser.goTo("http://localhost:3333")
+//				browser.$("#title").getTexts().get(0) must equalTo("Hello Guest")
+//
+//				browser.$("a").click()
+//
+//				browser.url must equalTo("http://localhost:3333/Coco")
+//				browser.$("#title").getTexts().get(0) must equalTo("Hello Coco")
+//
+//		}
+//	}
+//	
+//	"FakeApplication" should {
+//
+//		val fakeApplication = FakeApplication(
+//			additionalConfiguration = inMemoryDatabase("test"),
+//			withGlobal = Some(new GlobalSettings() {
+//				override def onStart(app: Application) { println("Winter is coming!") }
+//			}))
+//
+//		"" in new WithApplication(fakeApplication) {
+//			true must beTrue
+//		}
+//	}
+//
+//	"WithDbData" should {
+//
+//		abstract class WithDbData extends WithApplication {
+//			//override def around[T](t: => T)(implicit evidence: (T) => Result) = ??? //TODO FAZER ALGO
+//		}
+//
+//		"" in new WithDbData {
+//			true must beTrue
+//		}
+//	}
 
 }

@@ -25,7 +25,6 @@ trait DBIntegration extends TableList {
 					try {
 						tableList.foreach {
 							table =>
-								println(table.ddl.createStatements.mkString("\n"))
 								table.ddl.create
 						}
 					} catch {
@@ -33,11 +32,11 @@ trait DBIntegration extends TableList {
 							e.printStackTrace()
 							throw e
 					}
+					
 					import scala.slick.jdbc.{StaticQuery => Q }
 					Source.fromFile(s"sql/livros.sql").getLines().foreach {
 						line => 
 							if (line.startsWith("insert")) (Q.u + line).execute
-							println(line)
 					}
 				}
 		}
